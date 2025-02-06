@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymelef.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-  <h3>dasda</h3>
+<h1>여러가지 자료구조 표현하기</h1>
+<ul>
+    <li>단순변수</li>
+    <span>- data : [[ ${data} ]]</span>
+</ul>
+<ul>
+    <li>Object</li>
+    <span>- userData.userName : </span>
+    <span th:text="${userData.userName}"></span>
+    <br>
+    <span>- userData['userAge'] : </span>
+    <span th:text="${userData['userAge']}"></span>
+    <br>
+    <span>- userData.getUserAddress() : </span>
+    <span th:text="${userData.getUserAddress()}"></span>
+</ul>
+    <ul>
+    <li>List</li>
+    <span>- fruits.userName : </span>
+    <span th:text="${fruits[0].fruitName}"></span>
+    <br>
+    <span>- userData['userAge'] : </span>
+    <span th:text="${fruits[0].getTaste()}"></span>
+    <br>
+</ul>
+<table border="1">
+    <tr>
+        <th>no</th>
+        <th>과일 이름</th>
+        <th>과일맛</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>[[${fruits[0].fruitName}]]</td>
+        <td>[[${fruits[0].getTaste}]]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>[[${fruits[1].fruitName}]]</td>
+        <td>[[${fruits[1].taste}]]</td>
+    </tr>
+</table>
+
+<ul>
+    <li>Map</li>
+    <span>- animal.name : </span>
+    <span th:text="${map['dog'].name}"></span>
+    <br>
+    <span>- animal.sound : </span>
+    <span th:text="${map['dog'].sound}"></span>
+    <br>
+    <li>Map</li>
+    <span>- Map['cat'].name : </span>
+    <span th:text="${map['cat'].name}"></span>
+    <br>
+    <span>- Map['cat'].sound : </span>
+    <span th:text="${map['cat'].sound}"></span>
+    <br>
+</ul>
+<div th:with="dogName=${map['dog'].name},dogSound=${map['dog'].sound}">
+    <h3>변수 선언 : with</h3>
+    <ul>
+        <li>강아지 이름 : <span th:text="${dogName}"></span></li>
+        <li>강아지는 [[${dogSound}]] 소리내요</li>
+
+    </ul>
+</div>
+
 </body>
 </html>
