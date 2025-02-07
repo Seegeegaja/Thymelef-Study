@@ -12,6 +12,8 @@ public class UserData {
     private String userName;
     private int userAge;
     private String userAddress;
+    private int userWeight;
+    private int userHeight;
 
 //    public UserData(String userName, int userAge) {
 //        this.userName = userName;

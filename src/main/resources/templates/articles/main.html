@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h1>과과과과곽제</h1>
+<table border="1">
+  <tr>
+    <th>url</th>
+    <th>method</th>
+    <th>출력내용</th>
+    <th>html page</th>
+  </tr>
+  <tr>
+    <td>/articles/list</td>
+    <td>GET</td>
+    <td><a th:href="@{/articles/list}">전체 게시글 읽기 성공</a></td>
+    <td>list_all.html</td>
+  </tr>
+    <tr>
+        <td>/articles/{id}</td>
+        <td>GET</td>
+        <td th:with="value=7"><a th:href="@{/articles/{id}(id=${value})}">[[${value}]]번 게시글 읽어오기 성공</a></td>
+        <td>list_one.html</td>
+    </tr>
+    <tr>
+        <td>/articles/create?name=tom&weight=8
+            0&height=180</td>
+        <td>GET</td>
+        <td th:with="name='tom', weight=80, height=185">
+            <a th:href="@{/articles/create(name=${name},weight=${weight},height=${height})}">
+                [[${name}]]의 키는 [[${height}]] 몸무게는 [[${weight}]] 입니다.</a></td>
+        <td>new.html</td>
+    </tr>
+    <tr>
+        <td>/articles/update</td>
+        <td>POST</td>
+        <td><a th:href="@{/articles/update}">업데이트 성공 화면 출력</a></td>
+        <td>update_ok.html</td>
+    </tr>
+    <tr>
+        <td>/articles/{id}/update</td>
+        <td>GET</td>
+        <td th:with="google=5"><a th:href="@{/articles/{id}/update(id=${google})}">[[${google}]]번 게시글 수정 폼 로딩 완료</a></td>
+        <td>update.html</td>
+    </tr>
+    <tr>
+        <td>/articles/{id}/delete</td>
+        <td>GET</td>
+        <td th:with="qwer=3"><a th:href="@{/articles/{id}/delete(id=${qwer})}">[[${qwer}]]번 글 삭제 완료</a></td>
+        <td>delete_ok.html</td>
+    </tr>
+    <tr>
+        <td>/articles/{id}/articleComment</td>
+        <td>POST</td>
+        <td th:with="simple=11"><a th:href="@{/articles/{id}/articleComment(id=${simple})}">[[${simple}]]번 게시글 모든 댓글보기 성공</a></td>
+        <td>comment_view.html</td>
+    </tr>
+    <tr>
+        <td>/articles/{id}/articleComments/{articlecomment-id}/delete</td>
+        <td>POST</td>
+        <td th:with="cow=15 , cat=3"><a th:href="@{/articles/{id}/articleComments/{articlecomment-id}/delete(id=${cow},articlecomment-id=${cat})}">[[${cow}]]번 게시글의 [[${cat}]]번째 답글 삭제완료</a></td>
+        <td>delete_ok.html</td>
+    </tr>
+</table>
+</body>
+</html>
