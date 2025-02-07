@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .text{
+    font-size : 16px
+  }
+  .large {
+  font-size : 32px
+  }
+  .red  {
+  color : red;
+  }
+  .blue  {
+  color : blue;
+  }
+  .bold {
+  font-weight : 700;
+  }
+
+</style>
+<body>
+  <h1>Attribute Page</h1>
+  <input type="text" class="text" value="안유진"th:name="thName" th:value="카리나" >
+  <hr>
+<!--  <span(태그) class(어트리뷰트)="text" th:classappend="'red bold'">Attribute Test 첫번째</span>-->
+  <span class="text" th:classappend="'red bold'">Attribute Test 첫번째</span><br>
+<!--  attrappend 클레스 뒤에 클레스 추가 앞에 띄어주기 -->
+  <span class="text" th:attrappend="class=' large'">Attribute Test 두번째</span><br>
+<!--  attrprepend 클레스 앞에 클레스 추가 뒤에 띄어쓰기-->
+  <span class="text" th:attrprepend="class='large '">Attribute Test 세번째</span>
+</body>
+</html>

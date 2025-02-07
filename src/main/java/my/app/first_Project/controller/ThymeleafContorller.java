@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/basic")
@@ -65,6 +62,45 @@ public class ThymeleafContorller {
         animalMap.put("cat",cat);
         model.addAttribute("map",animalMap);
         return "basic/variables";
+
+    }
+    @GetMapping("/literal")
+    public String literal(Model model){
+        model.addAttribute("data", "spring");
+        return "/basic/literal";
+    }
+    @GetMapping("/operation")
+    public String operation(Model model){
+        model.addAttribute("a", 10);
+        model.addAttribute("b", 3);
+        model.addAttribute("nullData", null);
+        model.addAttribute("name", "안유진");
+        return "/basic/operation";
+    }
+
+    @GetMapping("/attribute")
+    public String attribute(Model model) {
+
+        return "basic/attribute";
+    }
+    @GetMapping("/for")
+    public String forOperation(Model model){
+        addUser(model);
+        return "/basic/for_opr";
+    }
+
+    private void addUser(Model model) {
+        List<UserData> userList = new ArrayList<>(
+                Arrays.asList(
+                        new UserData("카리나",21,"서울" , 45 , 175),
+                        new UserData("윈터",22,"부산" , 45 , 160),
+                        new UserData("닝닝",25,"대구" , 50 , 165),
+                        new UserData("리사",30,"태국" , 51 , 170),
+                        new UserData("몰랑",35,"중국" , 80 , 185)
+                )
+        );
+        model.addAttribute(userList);
+        System.out.println(userList);
 
     }
 
