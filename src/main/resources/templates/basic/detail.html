@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>User Detail정보</h1>
+  <div th:text="|${name}다 이자식아|">[[${name}]]다 이작식아</div><hr>
+  <div>[[${age}]]살이다 이작식아</div><hr>
+  <div>[[${address}]]에산다 이작식아</div><hr>
+  <div>[[${weight}]]kg이다 이작식아</div><hr>
+  <div>[[${height}]]cm다 이작식아</div><hr>
+  <a th:href="@{/basic/for}"><span>돌아가욧</span></a>
+</body>
+</html>

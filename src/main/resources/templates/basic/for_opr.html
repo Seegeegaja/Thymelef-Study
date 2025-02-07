@@ -6,5 +6,70 @@
 </head>
 <body>
     <h1>For_opr Page UM..내맘데로 멤버리스트</h1>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>address</th>
+        <th>weight</th>
+        <th>height</th>
+    </tr>
+    <tr th:each="user:${userList}">
+        <td>
+            <a th:href="@{/basic/myselceter(name=${user.userName},age=${user.userAge},address=${user.userAddress}, weight=${user.userWeight},height=${user.userHeight})}"  th:text="${user.userName}"></a>
+        </td>
+        <td>
+            <a th:href="@{/basic/add(name=${user.userName},age=${user.userAge},address=${user.userAddress}, weight=${user.userWeight},height=${user.userHeight})}"  th:text="${user.userName}"></a>
+        </td>
+        <td th:text="${user.userAddress}">전주</td>
+        <td th:text="${user.userWeight}">90</td>
+        <td th:text="${user.userHeight}">183</td>
+    </tr>
+</table>
+    <h1>For_opr Page th:object 활용</h1>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+            <th>weight</th>
+            <th>height</th>
+        </tr>
+        <tr th:each="user:${userList}" th:object="${user}">
+            <td th:text="*{userName}">32</td>
+            <td th:text="*{userAge}">32</td>
+            <td th:text="*{userAddress}">전주</td>
+            <td th:text="*{userWeight}">90</td>
+            <td th:text="*{userHeight}">183</td>
+
+        </tr>
+    </table>
+
+    <h1>For_opr Page index 활용</h1>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+            <th>weight</th>
+            <th>height</th>
+        </tr>
+        <tr th:each="user,i:${userList}" th:object="${user}">
+            <td th:text="${i.count}"></td>
+            <td th:text="*{userName}">32</td>
+            <td th:text="*{userAge}">32</td>
+            <td th:text="*{userAddress}">전주</td>
+            <td th:text="*{userWeight}">90</td>
+            <td th:text="*{userHeight}">183</td>
+            <td>
+                idex= <span>[[${i.index}]]</span>
+                ,size= <span>[[${i.size}]]</span>
+                ,first= <span>[[${i.first}]]</span>
+                ,last= <span>[[${i.last}]]</span>
+                ,current= <span>[[${i.current}]]</span>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

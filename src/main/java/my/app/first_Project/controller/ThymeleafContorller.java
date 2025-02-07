@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -99,9 +100,33 @@ public class ThymeleafContorller {
                         new UserData("몰랑",35,"중국" , 80 , 185)
                 )
         );
-        model.addAttribute(userList);
+        model.addAttribute("userList", userList);
         System.out.println(userList);
 
+    }
+    @GetMapping("/myselceter")
+    public String detail(
+            @RequestParam("name")String name,
+            @RequestParam("age")int age,
+            @RequestParam("address")String address,
+            @RequestParam("weight")int weight,
+            @RequestParam("height")int height,
+            Model model){
+        model.addAttribute("name", name);
+        model.addAttribute("age", age);
+        model.addAttribute("address", address);
+        model.addAttribute("weight", weight);
+        model.addAttribute("height", height);
+        return "basic/detail";
+    }
+    @GetMapping("/add")
+    public String add(@RequestParam("name")String name,
+                      @RequestParam("age")int age,
+                      @RequestParam("address")String address,
+                      @RequestParam("weight")int weight,
+                      @RequestParam("height")int height,Model model){
+        model.addAttribute("selectUser", UserData.fromParams(name,age,address,weight,height));
+        return "basic/detailToo";
     }
 
 }

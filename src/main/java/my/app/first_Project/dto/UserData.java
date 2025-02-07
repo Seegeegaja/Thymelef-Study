@@ -14,6 +14,10 @@ public class UserData {
     private int userWeight;
     private int userHeight;
 
+    public static UserData fromParams(String userName,int userAge , String userAddress , int userWeight , int userHeight) {
+        return new UserData(userName, userAge, userAddress, userWeight, userHeight);
+    }
+
 //    public UserData(String userName, int userAge) {
 //        this.userName = userName;
 //        this.userAge = userAge;
