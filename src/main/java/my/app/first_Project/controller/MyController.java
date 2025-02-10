@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //요청할 대상은  localhost:8081/mypage --> 요청받을 아이를 만들 곳
 @RequestMapping("/main")
 public class MyController {
-    @GetMapping({"/mypage","/myPage"})
+    @GetMapping({"/mypage", "/myPage"})
     public String getMypage() {
         return "myOldPage";
     }
+
     @GetMapping("about")
-    public String about(){
+    public String about() {
         return "about";
     }
 

@@ -5,18 +5,20 @@
     <title>Title</title>
 </head>
 <body th:object="${info}">
-    <h1>Result</h1>
-    <span>Nickname : [[*{nickname}]]</span>
- <br>
-    <span>email : [[*{email}]]</span>
+<h1>Result</h1>
+<span>Nickname : [[*{nickname}]]</span>
+<br>
+<span>email : [[*{email}]]</span>
 <br>
 <span>TrueOrFalse : [[*{trueOrFalse}]]</span>
-    <br>
-    <span>Hobbies : </span>
-    <th:block th:each="h:*{hobbies}">
-        <span th:text="${h}"></span>
-    </th:block>
 <br>
-    <span>Like Language : [[*{language}]]</span>
+<span>Hobbies : </span>
+<th:block th:each="h:*{hobbies}">
+    <span th:text="${h}"></span>
+</th:block>
+<br>
+<span>Like Language : [[*{language}]]</span>
+<br>
+<span>Country : [[*{country}]]</span>
 </body>
 </html>

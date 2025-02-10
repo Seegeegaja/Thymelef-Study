@@ -2,6 +2,7 @@ package my.app.first_Project.dto;
 
 import lombok.*;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @Getter
 @Setter
 @ToString
@@ -14,7 +15,7 @@ public class UserData {
     private int userWeight;
     private int userHeight;
 
-    public static UserData fromParams(String userName,int userAge , String userAddress , int userWeight , int userHeight) {
+    public static UserData fromParams(String userName, int userAge, String userAddress, int userWeight, int userHeight) {
         return new UserData(userName, userAge, userAddress, userWeight, userHeight);
     }
 

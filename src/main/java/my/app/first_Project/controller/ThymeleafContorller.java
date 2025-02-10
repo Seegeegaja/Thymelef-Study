@@ -22,15 +22,16 @@ public class ThymeleafContorller {
     }
 
 
-//    http://localhost:8080/basic/text-basic
+    //    http://localhost:8080/basic/text-basic
     @GetMapping("/text-basic")
-    public String textBasic(Model model){
+    public String textBasic(Model model) {
         model.addAttribute("name", "안유진");
         model.addAttribute("See", "mylove");
         return "/basic/text-basic";
     }
+
     @GetMapping("/variables")
-    public String variables(Model model){
+    public String variables(Model model) {
         UserData userData = new UserData();
         userData.setUserName("안유진");
         userData.setUserAge(20);
@@ -47,7 +48,7 @@ public class ThymeleafContorller {
 
         fruits.add(apple);
         fruits.add(mango);
-        model.addAttribute("fruits",fruits);
+        model.addAttribute("fruits", fruits);
         System.out.println(fruits);
         //맵으로 작업
         Map<String, Animal> animalMap = new HashMap<>();
@@ -59,19 +60,21 @@ public class ThymeleafContorller {
         cat.setName("나비");
         cat.setSound("야옹");
 
-        animalMap.put("dog",dog);
-        animalMap.put("cat",cat);
-        model.addAttribute("map",animalMap);
+        animalMap.put("dog", dog);
+        animalMap.put("cat", cat);
+        model.addAttribute("map", animalMap);
         return "basic/variables";
 
     }
+
     @GetMapping("/literal")
-    public String literal(Model model){
+    public String literal(Model model) {
         model.addAttribute("data", "spring");
         return "/basic/literal";
     }
+
     @GetMapping("/operation")
-    public String operation(Model model){
+    public String operation(Model model) {
         model.addAttribute("a", 10);
         model.addAttribute("b", 3);
         model.addAttribute("nullData", null);
@@ -84,14 +87,15 @@ public class ThymeleafContorller {
 
         return "basic/attribute";
     }
+
     @GetMapping("/for")
-    public String forOperation(Model model){
+    public String forOperation(Model model) {
         addUser(model);
         return "/basic/for_opr";
     }
 
     @GetMapping("/condition")
-    public String condition (Model model){
+    public String condition(Model model) {
         addUser(model);
         return "/basic/condition";
 
@@ -100,26 +104,27 @@ public class ThymeleafContorller {
     private void addUser(Model model) {
         List<UserData> userList = new ArrayList<>(
                 Arrays.asList(
-                        new UserData("카리나",12,"서울" , 45 , 175),
-                        new UserData("윈터",19,"부산" , 45 , 160),
-                        new UserData("닝닝",20,"대구" , 50 , 165),
-                        new UserData("리사",30,"태국" , 51 , 170),
-                        new UserData("몰랑",35,"중국" , 80 , 185),
-                        new UserData("길동",40,"제주" , 90 , 185)
+                        new UserData("카리나", 12, "서울", 45, 175),
+                        new UserData("윈터", 19, "부산", 45, 160),
+                        new UserData("닝닝", 20, "대구", 50, 165),
+                        new UserData("리사", 30, "태국", 51, 170),
+                        new UserData("몰랑", 35, "중국", 80, 185),
+                        new UserData("길동", 40, "제주", 90, 185)
                 )
         );
         model.addAttribute("userList", userList);
-        System.out.println("userList = " +userList);
+        System.out.println("userList = " + userList);
 
     }
+
     @GetMapping("/myselceter")
     public String detail(
-            @RequestParam("name")String name,
-            @RequestParam("age")int age,
-            @RequestParam("address")String address,
-            @RequestParam("weight")int weight,
-            @RequestParam("height")int height,
-            Model model){
+            @RequestParam("name") String name,
+            @RequestParam("age") int age,
+            @RequestParam("address") String address,
+            @RequestParam("weight") int weight,
+            @RequestParam("height") int height,
+            Model model) {
         model.addAttribute("name", name);
         model.addAttribute("age", age);
         model.addAttribute("address", address);
@@ -127,13 +132,14 @@ public class ThymeleafContorller {
         model.addAttribute("height", height);
         return "basic/detail";
     }
+
     @GetMapping("/add")
-    public String add(@RequestParam("name")String name,
-                      @RequestParam("age")int age,
-                      @RequestParam("address")String address,
-                      @RequestParam("weight")int weight,
-                      @RequestParam("height")int height,Model model){
-        model.addAttribute("selectUser", UserData.fromParams(name,age,address,weight,height));
+    public String add(@RequestParam("name") String name,
+                      @RequestParam("age") int age,
+                      @RequestParam("address") String address,
+                      @RequestParam("weight") int weight,
+                      @RequestParam("height") int height, Model model) {
+        model.addAttribute("selectUser", UserData.fromParams(name, age, address, weight, height));
         return "basic/detailToo";
     }
 

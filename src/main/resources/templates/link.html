@@ -5,25 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-  <h1>URL Link 페이지</h1>
-    <ul>
-        <li>name : [[${name}]]</li>
-        <li>age : [[${age}]]</li>
-<!--        <li th:text="${age}">name : </li>-->
-    </ul>
-    <ul>
-        <li><a th:href="@{/url}">basic url</a></li>
-<!--        http://localhost:8080/getinfo?name=장원영&age=20-->
-<!--        무조건 바귀면th를 붙여야한다-->
-        <li>
-<!--            <a th:href="@{/getInfo(name=${name},age=${age})}">-->
-            <a th:href="@{|/getInfo?name=${name}&age=${age}|}">
-                Query Params</a></li>
-    </ul>
-  <span>요청 구두번호 : [[${shoesNumber}]]</span>
+<h1>URL Link 페이지</h1>
+<ul>
+    <li>name : [[${name}]]</li>
+    <li>age : [[${age}]]</li>
+    <!--        <li th:text="${age}">name : </li>-->
+</ul>
+<ul>
+    <li><a th:href="@{/url}">basic url</a></li>
+    <!--        http://localhost:8080/getinfo?name=장원영&age=20-->
+    <!--        무조건 바귀면th를 붙여야한다-->
+    <li>
+        <!--            <a th:href="@{/getInfo(name=${name},age=${age})}">-->
+        <a th:href="@{|/getInfo?name=${name}&age=${age}|}">
+            Query Params</a></li>
+</ul>
+<span>요청 구두번호 : [[${shoesNumber}]]</span>
 <li>
     http://localhost:8080/shoes/details/3
-<!--    <a th:href="@{/shoes/details/{id}(id=${shoesNumber})}">-->
+    <!--    <a th:href="@{/shoes/details/{id}(id=${shoesNumber})}">-->
     <a th:href="@{|/shoes/details/${shoesNumber}|}">
         path variable
     </a>
@@ -31,7 +31,7 @@
 <!--  http://localhost:8080/shoes/3?name=nike-->
 <ul>
     <li>
-<!--        <a th:href="@{/shoes/{id}(id=${shoesNumber},name=${name})}">-->
+        <!--        <a th:href="@{/shoes/{id}(id=${shoesNumber},name=${name})}">-->
         <a th:href="@{|/shoes/${shoesNumber}?name=${name}|}">
             Query Params + Path Variable
         </a>

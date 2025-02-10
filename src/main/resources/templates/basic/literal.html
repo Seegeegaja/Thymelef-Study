@@ -5,23 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-  <h1>리터럴 페이지</h1>
-  <ul>
+<h1>리터럴 페이지</h1>
+<ul>
     <li>
-<!--      문자열의 집합이 literal이라고 함-->
-      <span th:text="장원영" > 장준용</span>
+        <!--      문자열의 집합이 literal이라고 함-->
+        <span th:text="장원영"> 장준용</span>
 
     </li>
     <!--      리터럴은 중간에 공백이 있으면 작은따옴표를 붙여야함-->
     <li>
-    <span th:text="'Hello World'" > 장준용</span>
+        <span th:text="'Hello World'"> 장준용</span>
     </li>
     <li>보낸 데이터 : [[${data}]]
-      <span > [[${data}]] 입니다</span>
+        <span> [[${data}]] 입니다</span>
     </li>
     <li>보낸 데이터 th 태그 :
-      <span th:text="|${data}입니다.|"></span>
+        <span th:text="|${data}입니다.|"></span>
     </li>
-  </ul>
+</ul>
 </body>
 </html>

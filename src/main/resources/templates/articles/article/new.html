@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body >
+<body>
 <div th:object="${data}">
-  <h1> [[*{userName}]]의 키는 [[*{userHeight}]],몸무게는 [[*{userWeight}]] 입니다</h1>
-  <span><a th:href="@{/articles/main}">main으로 이동</a></span>
+    <h1> [[*{userName}]]의 키는 [[*{userHeight}]],몸무게는 [[*{userWeight}]] 입니다</h1>
+    <span><a th:href="@{/articles/main}">main으로 이동</a></span>
 </div>
 </body>
 </html>
