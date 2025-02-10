@@ -16,7 +16,9 @@ public class CommentsController {
         return "articles/comments/comment_view";
     }
     @GetMapping("/articles/{id}/articleComments/{articlecomment-id}/delete")
-    public String delete(@PathVariable("id")int articleId,@PathVariable("articlecomment-id")int aid ,Model model){
+    public String delete(@PathVariable("id")int articleId,
+                         @PathVariable("articlecomment-id")int aid ,
+                         Model model){
         Map<String, Integer> id = new HashMap<>();
         id.put("id" , articleId);
         id.put("aid" ,aid);

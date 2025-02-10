@@ -90,18 +90,26 @@ public class ThymeleafContorller {
         return "/basic/for_opr";
     }
 
+    @GetMapping("/condition")
+    public String condition (Model model){
+        addUser(model);
+        return "/basic/condition";
+
+    }
+
     private void addUser(Model model) {
         List<UserData> userList = new ArrayList<>(
                 Arrays.asList(
-                        new UserData("카리나",21,"서울" , 45 , 175),
-                        new UserData("윈터",22,"부산" , 45 , 160),
-                        new UserData("닝닝",25,"대구" , 50 , 165),
+                        new UserData("카리나",12,"서울" , 45 , 175),
+                        new UserData("윈터",19,"부산" , 45 , 160),
+                        new UserData("닝닝",20,"대구" , 50 , 165),
                         new UserData("리사",30,"태국" , 51 , 170),
-                        new UserData("몰랑",35,"중국" , 80 , 185)
+                        new UserData("몰랑",35,"중국" , 80 , 185),
+                        new UserData("길동",40,"제주" , 90 , 185)
                 )
         );
         model.addAttribute("userList", userList);
-        System.out.println(userList);
+        System.out.println("userList = " +userList);
 
     }
     @GetMapping("/myselceter")
